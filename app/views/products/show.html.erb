@@ -1,0 +1,47 @@
+
+    <nav>
+        <div id="navlinks">
+        <%= link_to "Home", home_path %>
+        <%= link_to "Contact", contact_path %>
+        <%= link_to "Store", store_path  %>
+        </div>
+    </nav>
+    <header>
+        <h1> The Turtle Heart </h1>
+        <div class="bar"> </div>
+        <h3> Handmade in Woodside, California </h3>
+    </header>
+    
+    <div class="sub">
+        <%= image_tag('sub.jpg') %>
+    </div>
+    <% if notice %>
+    <p id="notice"><%= notice %></p>
+    <% end %>
+	
+	<!--TITLE-->
+    <h2 style="color: #6ca29b;"> <%= @hash["results"][0]["title"] %> </h2>
+	
+	<!--CONTENT-->
+	<div style= "width: 1100px; margin: 20px auto;"><!--BEGIN MARGIN-->
+    <div style="margin-left: 30px; float: left;"<p><%= image_tag(@product.image_url) %></p></div>
+	
+	<!--PRICE and MATERIALS-->
+    <div style="margin-left: 30px; float: left;"><span style="font-size: 20px;">$<%= @hash["results"][0]["price"] %></span><br/>
+    <ul> <% @hash["results"][0]["materials"].each do |material| %> 
+        <li> <span class="arrow"> » </span> <%= material %> </li>
+        <% end %>
+    </ul>
+   
+    <%= button_to 'Add to Cart', line_items_path(product_id: @product), :class => 'btn'  %>
+	
+	</div>
+	
+	<!--DESCRIPTION-->
+	<div class="description" ><font size="3"> <%= @hash["results"][0]["description"].html_safe %></font></div>
+	</div><!--END MARGIN-->
+    <div style="clear:both; margin-left:14%">
+    <!-- <%= link_to 'Edit', edit_product_path(@product) %> -->|
+    <%= link_to 'Back to Store', store_path %>
+    </div>
+	<div id="spacer"></div>

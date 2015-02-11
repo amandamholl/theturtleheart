@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    </head>
+
+    <body class='container'>
+
+    <nav>
+        <div id="navlinks">
+        <%= link_to "Home", home_path %>
+        <a id="active" href="#"> Contact </a> 
+        <%= link_to "Store", store_path %>
+        </div>
+    </nav>
+    <header>
+        <h1> The Turtle Heart </h1>
+        <div class="bar"> </div>
+        <h3> Handmade in Woodside, California </h3>
+    </header>
+    
+    <div class="sub">
+        <%= image_tag('sub.jpg') %>
+    </div>
+    <p id="notice"><%= notice %></p>
+    <div class="paragraph" style="margin-left: 20%">
+    <p>Please contact us for sales at <font color="#248d6c"> sales@theturtleheart.com</font> or fill out the form below. </p>
+        <%= form_for(@contact_form) do |f| %>
+        <div class="field">
+            <%= f.label :name %><br>
+            <%= f.text_field :name %>
+        </div>
+        <div class="field">
+            <%= f.label :email %><br>
+            <%= f.text_field :email %>
+        </div>
+        <div class="field">
+            <%= f.label :message %><br>
+            <%= f.text_area :message %>
+        </div>
+        <div class="actions">
+            <%= f.submit %>
+            </div>
+        <% end %>
+    </div>
+	
+</body>
+
+</html>

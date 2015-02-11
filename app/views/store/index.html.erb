@@ -1,0 +1,24 @@
+<nav>
+    <div id="navlinks">
+    <%= link_to "Home", home_path %>
+    <%= link_to "Contact", contact_path %> 
+    <a id="active" href="#"> Store </a> 
+    </div>
+</nav>
+<header>
+    <h1> The Turtle Heart </h1>
+    <div class="bar"> </div>
+    <h3> Handmade in Woodside, California </h3>
+</header>
+<div class="sub">
+    <%= image_tag('sub.jpg') %>
+</div>
+<div id="images" >
+<% @items.each do |item| %>
+    <div class="image">
+        <%= link_to image_tag(item.image_url), item %>
+    </div>
+<% end %>
+</div>
+<div id="spacer"></div>
+

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Turtle Heart</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="container">
+
+<%= yield %>
+
+<footer style="clear:both">
+    <%= image_tag('turtle2.png') %>
+    <h3> The Turtle Heart </h3>
+    <p> Made in California <br/>
+    All Rights Reserved </p>
+</footer>
+
+</body>
+</html>

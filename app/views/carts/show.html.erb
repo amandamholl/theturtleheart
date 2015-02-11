@@ -1,0 +1,38 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<nav>
+    <div id="navlinks">
+    <%= link_to "Home", home_path %>
+    <%= link_to "Contact", contact_path %>
+    <%= link_to "Store", store_path  %>
+    </div>
+</nav>
+<header>
+    <h1> The Turtle Heart </h1>
+    <div class="bar"> </div>
+    <h3> Handmade in Woodside, California </h3>
+</header>
+
+<div class="sub">
+    <%= image_tag('sub.jpg') %>
+</div>
+<h2 style="color: #6ca29b;"> Your Cart </h2>
+<div id="cart">
+<ul>
+	<% @cart.line_items.each do |item| %>
+        <li><span style="font-size: 20px;"><%= item.quantity %> </span>&times; <%= image_tag(item.product.image_url) %> 
+        <span class="subtotal"> <%= number_to_currency(item.total_price) %></span></li>
+	<% end %>
+</ul>
+</div>
+<h3> Grand Total: <%= number_to_currency(@cart.total_price) %> </h3>
+
+<div style="clear:both; margin-left:14%;padding-top:1em;">
+
+<%= button_to 'Empty Cart', @cart,method: :delete, data: {confirm: 'Are you sure?'}, :class => 'btn' %>
+<div style="height: 30px"></div>
+ | <%= link_to 'Back to Store', store_path %>
+
+</div>
