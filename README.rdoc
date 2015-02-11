@@ -2,7 +2,7 @@
 
 Final Project for COEN 164 (Web Programming II). Built using Ruby on Rails.
 
-Things you may want to cover:
+Notes:
 
 * Ruby 1.9.3
 
